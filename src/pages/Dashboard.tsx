@@ -16,34 +16,10 @@ const chartData = [
 ];
 
 const summaryCards = [
-  {
-    label: "Lucro Total",
-    value: "R$ 29.800",
-    icon: TrendingUp,
-    gradient: "text-gradient-profit",
-    iconColor: "text-cyan",
-  },
-  {
-    label: "Prejuízo Total",
-    value: "R$ 3.850",
-    icon: TrendingDown,
-    gradient: "text-gradient-loss",
-    iconColor: "text-destructive",
-  },
-  {
-    label: "Resultado Líquido",
-    value: "R$ 25.950",
-    icon: DollarSign,
-    gradient: "text-gradient-gold",
-    iconColor: "text-primary",
-  },
-  {
-    label: "Total de Operações",
-    value: "142",
-    icon: BarChart3,
-    gradient: "text-gradient-gold",
-    iconColor: "text-primary",
-  },
+  { label: "Lucro Total", value: "R$ 29.800", icon: TrendingUp, gradient: "text-gradient-profit", iconColor: "text-cyan" },
+  { label: "Prejuízo Total", value: "R$ 3.850", icon: TrendingDown, gradient: "text-gradient-loss", iconColor: "text-destructive" },
+  { label: "Resultado Líquido", value: "R$ 25.950", icon: DollarSign, gradient: "text-gradient-gold", iconColor: "text-primary" },
+  { label: "Total de Operações", value: "142", icon: BarChart3, gradient: "text-gradient-gold", iconColor: "text-primary" },
 ];
 
 const filters = ["Hoje", "Semana", "Mês", "Tudo", "CPA"];
@@ -53,19 +29,17 @@ export default function Dashboard() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 animate-fade-in">
-      {/* Title */}
       <div>
         <h1 className="text-xl font-display font-bold text-gradient-gold">Visão Geral</h1>
         <p className="text-sm text-muted-foreground mt-1">Resumo da sua operação VIP</p>
       </div>
 
-      {/* Summary Cards */}
+      {/* Summary Cards - NO float animation */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         {summaryCards.map((card) => (
           <div
             key={card.label}
-            className="glass rounded-xl p-4 md:p-5 hover:glow-gold transition-all duration-300 animate-float group"
-            style={{ animationDelay: `${summaryCards.indexOf(card) * 0.3}s` }}
+            className="glass rounded-xl p-4 md:p-5 hover:glow-gold transition-all duration-300 group"
           >
             <div className="flex items-center gap-2 mb-2">
               <card.icon size={16} className={card.iconColor} />
@@ -122,13 +96,7 @@ export default function Dashboard() {
                   fontSize: "12px",
                 }}
               />
-              <Area
-                type="monotone"
-                dataKey="lucro"
-                stroke="hsl(187 100% 50%)"
-                strokeWidth={2}
-                fill="url(#cyanGrad)"
-              />
+              <Area type="monotone" dataKey="lucro" stroke="hsl(187 100% 50%)" strokeWidth={2} fill="url(#cyanGrad)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>

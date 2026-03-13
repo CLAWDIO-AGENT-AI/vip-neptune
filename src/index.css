@@ -36,7 +36,6 @@
 
     --radius: 0.75rem;
 
-    /* Custom VIP tokens */
     --abyss: 225 67% 2%;
     --abyss-light: 220 50% 6%;
     --gold: 43 96% 56%;
@@ -148,6 +147,45 @@
   .status-unpaid {
     @apply bg-red-500/20 text-red-400 border border-red-500/30;
   }
+}
+
+/* Modal input styles */
+.modal-input {
+  @apply w-full bg-secondary border border-border rounded-lg px-3 py-2.5 text-sm text-foreground outline-none transition-all duration-200;
+}
+.modal-input:focus {
+  border-color: hsl(43 96% 56%);
+  box-shadow: 0 0 0 2px hsla(43, 96%, 56%, 0.1);
+}
+
+/* Slider styling */
+.slider-gold {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: hsl(220 40% 12%);
+  outline: none;
+}
+.slider-gold::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 90% 40%));
+  cursor: pointer;
+  box-shadow: 0 0 12px hsla(43, 96%, 56%, 0.4);
+  border: 2px solid hsl(225 67% 2%);
+}
+.slider-gold::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 90% 40%));
+  cursor: pointer;
+  box-shadow: 0 0 12px hsla(43, 96%, 56%, 0.4);
+  border: 2px solid hsl(225 67% 2%);
 }
 
 /* Particle canvas background */
