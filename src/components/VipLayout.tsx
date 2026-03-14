@@ -11,9 +11,9 @@ export function VipLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-background relative">
       <ParticleBackground />
       <div className="relative z-10 flex flex-col min-h-screen">
-        <VipHeader onToggleSidebar={() => setSidebarExpanded(!sidebarExpanded)} />
+        <VipHeader />
         <div className="flex flex-1">
-          <VipSidebar expanded={sidebarExpanded} />
+          <VipSidebar expanded={sidebarExpanded} onToggle={() => setSidebarExpanded(!sidebarExpanded)} />
           <main className="flex-1 overflow-y-auto pb-20 md:pb-6">
             {children}
           </main>

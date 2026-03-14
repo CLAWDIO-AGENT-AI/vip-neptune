@@ -1,30 +1,22 @@
-import { Bell, LayoutDashboard, Activity, Layers, Clock, Settings, Menu } from "lucide-react";
+import { Bell, LayoutDashboard, Activity, Layers, Clock, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 import icone from "@/assets/icone.webp";
 
-interface VipHeaderProps {
-  onToggleSidebar?: () => void;
-}
-
-export function VipHeader({ onToggleSidebar }: VipHeaderProps) {
+export function VipHeader() {
   return (
     <header className="relative z-20 flex items-center justify-between px-4 md:px-6 h-14 glass-strong border-b border-border">
-      {/* Logo */}
-      <div className="flex items-center gap-2">
-        <button onClick={onToggleSidebar} className="hidden md:flex p-1.5 rounded-lg hover:bg-secondary transition-colors">
-          <Menu size={18} className="text-muted-foreground" />
-        </button>
-        <img src={icone} alt="VIP Netuno" className="w-8 h-8 trident-glow" />
-        <span className="font-display text-sm font-bold text-gradient-gold hidden sm:inline">
-          VIP NETUNO
-        </span>
-      </div>
+      {/* Logo + Title — clickable → home */}
+      <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <img src={icone} alt="VIP Netuno" className="w-8 h-8 rounded-full overflow-hidden aspect-square object-cover trident-glow" />
+        <span className="font-display text-sm font-bold text-gradient-gold">VIP NETUNO</span>
+      </Link>
 
       {/* VIP Status */}
       <div className="flex items-center gap-2 ml-auto mr-3">
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg glass border border-primary/20">
-          <span className="text-xs trident-glow">🔱</span>
-          <span className="text-[10px] font-display font-bold text-primary tracking-wider">VIP</span>
-          <span className="text-[10px] text-muted-foreground font-medium">até 21/03/2026</span>
+          <span className="text-sm trident-glow">🔱</span>
+          <span className="text-sm font-display font-extrabold text-primary tracking-wider">VIP</span>
+          <span className="text-sm text-muted-foreground font-bold">até 21/03/2026</span>
         </div>
       </div>
 
